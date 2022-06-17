@@ -1,11 +1,11 @@
 const express = require('express');
-const NaveEspacialService = require('../services/naveEspacial.service');
+const SpacecraftService = require('../services/spacecraft.service');
 const validationHandler = require('../middlewares/validationHandler');
-const { createSpacecraftSchema, spacecraftIdSchema, updateSpacecraftSchema } = require('../schemas/naveEspacial.schema');
+const { createSpacecraftSchema, spacecraftIdSchema, updateSpacecraftSchema } = require('../schemas/spacecraft.schema');
 
 
 const router = express.Router();
-const service = new NaveEspacialService();
+const service = new SpacecraftService();
 
 router.get('/', async function (req, res, next) {
   req.query;
