@@ -1,4 +1,3 @@
-const boom = require('@hapi/boom');
 const MongoLib = require('../lib/database');
 
 class NaveEspacialService {

@@ -1,5 +1,8 @@
 const express = require('express');
 const NaveEspacialService = require('../services/naveEspacial.service');
+const validationHandler = require('../middlewares/validationHandler');
+const { createSpacecraftSchema, spacecraftIdSchema, updateSpacecraftSchema } = require('../schemas/naveEspacial.schema');
+
 
 const router = express.Router();
 const service = new NaveEspacialService();
@@ -32,7 +35,7 @@ router.get('/:spacecraftId', async function (req, res, next) {
   }
 });
 
-router.post('/', async function (req, res, next) {
+router.post('/', validationHandler(createSpacecraftSchema) ,async function (req, res, next) {
   const request = req.body;
   try {
     const addSpacecraft = await service.createSpacecraft(request);
@@ -46,7 +49,7 @@ router.post('/', async function (req, res, next) {
     }
   });
 
-  router.put('/:spacecraftId', async function (req, res, next) {
+  router.put('/:spacecraftId',  validationHandler({ spacecraftId: spacecraftIdSchema }, 'params'), validationHandler(updateSpacecraftSchema),async function (req, res, next) {
     const { spacecraftId } = req.params;
     const { body: message } = req;
 
@@ -62,7 +65,7 @@ router.post('/', async function (req, res, next) {
     }
   });
 
-  router.delete('/:spacecraftId', async function (req, res, next) {
+  router.delete('/:spacecraftId', validationHandler({ spacecraftId: spacecraftIdSchema }, 'params'), async function (req, res, next) {
       const { spacecraftId } = req.params;
       try {
           const deleteSpacecraftId = await service.deleteSpacecraft({spacecraftId});
