@@ -7,6 +7,7 @@ class UnmannedShip extends Spacecraft {
     }) {
     super({activity, origin, tripulation, combustible, state, weight});
     this.objectOfStudy = objectOfStudy;
+    this.type = 'nave no tripulada';
   }
 
   send() {
@@ -18,7 +19,8 @@ class UnmannedShip extends Spacecraft {
       combustible: this.combustible,
       state: this.state,
       weight: this.weight,
-      objectOfStudy: this.objectOfStudy
+      objectOfStudy: this.objectOfStudy,
+      type: this.type
     }
     return unmannedShip;
   }

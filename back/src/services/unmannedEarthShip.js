@@ -9,6 +9,7 @@ class UnmannedEarthShip extends Spacecraft {
     super({activity, origin, tripulation, combustible, state, weight});
     this.inOrbit = inOrbit;
     this.speed = speed;
+    this.type = 'nave no tripulada en orbita';
   }
 
   send() {
@@ -21,7 +22,8 @@ class UnmannedEarthShip extends Spacecraft {
       state: this.state,
       weight: this.weight,
       inOrbit: this.inOrbit,
-      speed: this.speed
+      speed: this.speed,
+      type: this.type
     }
     return unmannedEarthShip;
   }

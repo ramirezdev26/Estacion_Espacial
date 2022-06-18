@@ -13,6 +13,7 @@ class ShuttleVehicle extends Spacecraft {
     this.thrust = thrust;
     this.height = height;
     this.power = power;
+    this.type = 'vehiculo lanzadera'
   }
 
   send() {
@@ -27,7 +28,8 @@ class ShuttleVehicle extends Spacecraft {
       burden: this.burden,
       thrust: this.thrust,
       height: this.height,
-      power: this.power
+      power: this.power,
+      type: this.type
     }
     return shuttleVehicle;
   }

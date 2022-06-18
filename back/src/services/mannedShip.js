@@ -7,6 +7,7 @@ class MannedShip extends Spacecraft {
     }) {
     super({activity, origin, tripulation, combustible, state, weight});
     this.mission = mission;
+    this.type = 'nave tripulada';
   }
 
   send() {
@@ -18,7 +19,8 @@ class MannedShip extends Spacecraft {
       combustible: this.combustible,
       state: this.state,
       weight: this.weight,
-      mission: this.mission
+      mission: this.mission,
+      type: this.type
     }
     return mannedShip;
   }

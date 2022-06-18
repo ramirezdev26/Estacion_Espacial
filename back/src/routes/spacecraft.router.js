@@ -12,10 +12,9 @@ router.get('/', async function (req, res, next) {
   try {
       const spacecraft = await service.findAll();
 
-      res.status(200).json({
-          data: spacecraft,
-          message: 'Spacecrafts listed'
-      })
+      res.status(200).json(
+          spacecraft
+      )
   } catch (err) {
       next(err);
   }
