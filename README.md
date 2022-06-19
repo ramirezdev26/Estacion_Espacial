@@ -8,7 +8,7 @@ If you dont have NodeJs, you must dowload that from this page https://nodejs.org
 Installation (you have to do it in back folder and front folder cause thy are differents applications)
 $ npm install
 Running the app
-# development
+# development (first run the back, then run the front)
 $ npm run dev
 
 # test (just for back)
