@@ -8,6 +8,7 @@ const spacecraftTripulationSchema = joi.number();
 const spacecraftCombustibleSchema = joi.string();
 const spacecraftStateSchema = joi.string();
 const spacecraftWeightSchema = joi.string();
+const spacecraftTypeSchema = joi.string();
 const shuttleVehicleBurdenSchema = joi.string();
 const shuttleVehicleThrustSchema = joi.string();
 const shuttleVehicleHeightSchema = joi.string();
@@ -20,6 +21,7 @@ const mannedShipMissionSchema = joi.string();
 
 const createSpacecraftSchema = {
   name: spacecraftNameSchema.required(),
+  type: spacecraftTypeSchema.required(),
   activity: spacecraftActivitySchema.required(),
   origin: spacecraftOriginSchema.required(),
   tripulation: spacecraftTripulationSchema.required(),
@@ -38,6 +40,7 @@ const createSpacecraftSchema = {
 
 const updateSpacecraftSchema = {
   name: spacecraftNameSchema,
+  type: spacecraftTypeSchema,
   activity: spacecraftActivitySchema,
   origin: spacecraftOriginSchema,
   tripulation: spacecraftTripulationSchema,

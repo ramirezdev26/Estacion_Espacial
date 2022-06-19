@@ -32,6 +32,7 @@ const Form = ({newSpacecraft, setNewSpacecraft}) => {
     // restarting newSpacecraftState
     setNewSpacecraft({
       name: ' ',
+      type: ' ',
       activity: ' ',
       origin: ' ',
       tripulation: 0,
@@ -57,6 +58,10 @@ const Form = ({newSpacecraft, setNewSpacecraft}) => {
       <div className="col-4 m-1">
         <label htmlFor="name" className="form-label">Nombre</label>
         <input value={name} name="name" onChange={handleChange} type="text" id="name" className="form-control"/>
+      </div>
+      <div className="col-4 m-1">
+        <label htmlFor="type" className="form-label">Tipo de nave</label>
+        <input value={type} name="type" onChange={handleChange} type="text" id="type" className="form-control"/>
       </div>
       <div className="col-3 m-1">
         <label htmlFor="activity" className="form-label">Actividad</label>
@@ -111,7 +116,7 @@ const Form = ({newSpacecraft, setNewSpacecraft}) => {
         <input  name="speed" onChange={handleChange} type="text" id="speed" className="form-control"/>
       </div>
       <div className="col-2 m-1">
-        <label htmlFor="mission" className="form-label">Mision</label>
+        <label htmlFor="mission" className="form-label">Tipo de Mision</label>
         <input  name="mission" onChange={handleChange} type="text" id="mission" className="form-control"/>
       </div>
       <button type="submit" className="btn btn-primary">Submit</button>

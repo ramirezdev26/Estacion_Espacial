@@ -1,6 +1,33 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const SpaceList = ({spacecrafts, setListUpdated, newSpacecraft, setNewSpacecraft}) => {
+const SpaceList = ({search, setSpacecrafts, setSearch, tableSpacecrafts, spacecrafts, setListUpdated, newSpacecraft, setNewSpacecraft}) => {
+
+  const handleChange=e=>{
+    setSearch(e.target.value);
+    filter(e.target.value);
+  }
+
+  const filter = (wordSearch) => {
+    console.log(tableSpacecrafts);
+    var resultSearch = tableSpacecrafts.filter((element) => {
+      if(element.name.toString().toLowerCase().includes(wordSearch.toLowerCase()) ||
+         element.type.toString().toLowerCase().includes(wordSearch.toLowerCase()) ||
+         element.activity.toString().toLowerCase().includes(wordSearch.toLowerCase()) ||
+         element.origin.toString().toLowerCase().includes(wordSearch.toLowerCase()) ||
+         element.combustible.toString().toLowerCase().includes(wordSearch.toLowerCase()) ||
+         element.state.toString().toLowerCase().includes(wordSearch.toLowerCase()) ||
+         element.weight.toString().toLowerCase().includes(wordSearch.toLowerCase()) ) {
+        return element;
+      } else {
+        return console.log('word not found');
+      }
+    });
+    setSpacecrafts(resultSearch);
+  }
+
 
   const handleDelete = id => {
     const requestInit = {
@@ -36,6 +63,7 @@ const SpaceList = ({spacecrafts, setListUpdated, newSpacecraft, setNewSpacecraft
     // restarting newSpacecraftState
     setNewSpacecraft({
       name: ' ',
+      type: ' ',
       activity: ' ',
       origin: ' ',
       tripulation: 0,
@@ -56,12 +84,24 @@ const SpaceList = ({spacecrafts, setListUpdated, newSpacecraft, setNewSpacecraft
   }
 
   return (
-    <table className="table">
+  <div>
+    <div className="containerInput">
+        <input
+          className="form-control inputBuscar"
+          value={search}
+          placeholder="Busqueda por caracteristicas de la nave"
+          onChange={handleChange}
+        />
+        <button className="btn btn-succes">
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
+      </div>
+    <table className="table table-sm table-bordered">
       <thead>
         <tr>
           <th>ID</th>
           <th>Nombre</th>
-          <th>Tipo</th>
+          <th>Tipo de nave</th>
           <th>Actividad</th>
           <th>Origen</th>
           <th>Tripulacion</th>
@@ -73,9 +113,9 @@ const SpaceList = ({spacecrafts, setListUpdated, newSpacecraft, setNewSpacecraft
           <th>Altura</th>
           <th>Potencia</th>
           <th>Objeto de estudio</th>
-          <th>En orbita</th>
+          <th>Orbita terrestre?</th>
           <th>Velocidad</th>
-          <th>Mision</th>
+          <th>Tipo de Mision</th>
         </tr>
       </thead>
       <tbody>
@@ -111,6 +151,7 @@ const SpaceList = ({spacecrafts, setListUpdated, newSpacecraft, setNewSpacecraft
         ))}
       </tbody>
     </table>
+    </div>
    );
 }
 

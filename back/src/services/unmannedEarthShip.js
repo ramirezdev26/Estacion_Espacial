@@ -2,19 +2,19 @@ const Spacecraft = require('./spacecraft');
 
 class UnmannedEarthShip extends Spacecraft {
   constructor({
-    activity, origin, tripulation, combustible, state, weight,
+    name, type, activity, origin, tripulation, combustible, state, weight,
     inOrbit = 'yes',
     speed = 'undefined'
     }) {
-    super({activity, origin, tripulation, combustible, state, weight});
+    super({name, type, activity, origin, tripulation, combustible, state, weight});
     this.inOrbit = inOrbit;
     this.speed = speed;
-    this.type = 'nave no tripulada en orbita';
   }
 
   send() {
     const unmannedEarthShip = {
       name: this.name,
+      type: this.type,
       activity: this.activity,
       origin: this.origin,
       tripulation: this.tripulation,

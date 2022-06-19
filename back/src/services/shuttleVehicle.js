@@ -2,23 +2,23 @@ const Spacecraft = require('./spacecraft');
 
 class ShuttleVehicle extends Spacecraft {
   constructor({
-    name, activity, origin, tripulation, combustible, state, weight,
+    name, type, activity, origin, tripulation, combustible, state, weight,
     burden = 'undefined',
     thrust = 'undefined',
     height = 'undefined',
     power = 'undefined'
     }) {
-    super({name, activity, origin, tripulation, combustible, state, weight});
+    super({name, type, activity, origin, tripulation, combustible, state, weight});
     this.burden = burden;
     this.thrust = thrust;
     this.height = height;
     this.power = power;
-    this.type = 'vehiculo lanzadera'
   }
 
   send() {
     const shuttleVehicle = {
       name: this.name,
+      type: this.type,
       activity: this.activity,
       origin: this.origin,
       tripulation: this.tripulation,

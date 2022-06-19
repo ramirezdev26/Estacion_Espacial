@@ -2,17 +2,17 @@ const Spacecraft = require('./spacecraft');
 
 class MannedShip extends Spacecraft {
   constructor({
-    activity, origin, tripulation, combustible, state, weight,
+    name, activity, type, origin, tripulation, combustible, state, weight,
     mission = 'undefined',
     }) {
-    super({activity, origin, tripulation, combustible, state, weight});
+    super({name, activity, type, origin, tripulation, combustible, state, weight});
     this.mission = mission;
-    this.type = 'nave tripulada';
   }
 
   send() {
     const mannedShip = {
       name: this.name,
+      type: this.type,
       activity: this.activity,
       origin: this.origin,
       tripulation: this.tripulation,
@@ -20,7 +20,6 @@ class MannedShip extends Spacecraft {
       state: this.state,
       weight: this.weight,
       mission: this.mission,
-      type: this.type
     }
     return mannedShip;
   }

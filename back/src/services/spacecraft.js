@@ -1,7 +1,8 @@
 class Spacecraft {
 
-  constructor({ name, activity, origin, tripulation, combustible, state, weight}){
+  constructor({ name, type, activity, origin, tripulation, combustible, state, weight}){
     this.name = name
+    this.type = type
     this.activity = activity
     this.origin = origin
     this.tripulation = tripulation
