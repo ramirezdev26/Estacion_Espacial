@@ -21,3 +21,5 @@ app.use(errorHandler);
 app.listen(port, () => {
   console.log('Server is runing inport: ' + port);
 });
+
+module.exports= app;
