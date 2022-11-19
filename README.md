@@ -1,4 +1,9 @@
 # Estacion_Espacial
+This is a code that will display a table with the most iconic spaceships, with a search bar and a CRUD behaviour trough buttons and forms on the same page.
+The front is using react.js
+The backend use express.js with MongoDB
+
+
 Add file .env
 You must add file .env in back folder
 .env file schema:
