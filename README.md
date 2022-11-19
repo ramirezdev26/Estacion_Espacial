@@ -1,6 +1,11 @@
 # Estacion_Espacial
 Add file .env
 You must add file .env in back folder
+.env file schema:
+DB_HOST=
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
 
 NodeJs
 If you dont have NodeJs, you must dowload that from this page https://nodejs.org/en/
