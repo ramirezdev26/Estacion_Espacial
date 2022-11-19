@@ -4,7 +4,7 @@ The front is using react.js
 The backend use express.js with MongoDB
 
 
-Add file .env
+
 You must add file .env in back folder
 .env file schema:
 DB_HOST=
